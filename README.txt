@@ -31,3 +31,7 @@ Session Create Hoti Hai
          v
 Frontend: useSession se access karte ho
 // for understanding flow
+
+5.creating register and sign up page
+framer motion -> for aniamtion
+src/components/Welcome.tsx

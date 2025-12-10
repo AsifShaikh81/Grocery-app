@@ -1,9 +1,12 @@
+import Welcome from '@/components/Welcome'
 import React from 'react'
 
-function page() {
+function Register() {
   return (
-    <div>page</div>
+    <div>
+      <Welcome/>
+    </div>
   )
 }
 
-export default page
+export default Register
