@@ -1,3 +1,7 @@
+text-[#F25A1A]-orange
+text-[#F7F2D7] - beige
+[#D94E14] - hover orange
+
 1. model created
    src/model/user.model.ts
 
@@ -32,6 +36,14 @@ Session Create Hoti Hai
 Frontend: useSession se access karte ho
 // for understanding flow
 
-5.creating register and sign up page
+5.creating register and sign in page
 framer motion -> for aniamtion
+src/app/register/page.tsx
+src/app/login/page.tsx
+
 src/components/Welcome.tsx
+src/components/RegisterFormm.tsx
+
+Session provider
+src/app/layout.tsx - provider
+src/provider.tsx - creating session provide bcz of 'use client' cant directly be written in layout.tsx

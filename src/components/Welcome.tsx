@@ -3,7 +3,11 @@ import React from 'react'
 import { motion } from "motion/react"
 import { ArrowRight, ShoppingBasket, Van } from 'lucide-react'
 
-function Welcome() {
+type propType={
+  nextStep:(s:number)=> void;
+}
+
+function Welcome({nextStep}:propType) {
   return (
     <div className='flex flex-col items-center justify-center min-h-screen text-center px-4'>
       
@@ -55,6 +59,7 @@ function Welcome() {
         className='inline-flex items-center gap-2 bg-[#F25A1A] text-[#F7F2D7] 
         hover:bg-[#D94E14] font-semibold py-3 px-8 rounded-2xl shadow-md mt-4
         max-sm:px-6'
+        onClick={()=>nextStep(2)}
       >
         Let's Go
         <ArrowRight/>

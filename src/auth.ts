@@ -18,11 +18,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             const password=credentials.password as string
             const user=await User.findOne({email})
             if(!user){
-                throw new Error("user does not exist")
+               return { error: "User does not exist" };
             }
             const isMatch = await bcrypt.compare(password,user.password)
             if(!isMatch){
-                throw new Error("incorrect password")
+                return { error: "Incorrect password" };
             }
             return {
                 id:user._id.toString(),
@@ -41,6 +41,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         token.id=user.id,
         token.name=user.name,
         token.email=user.email
+        token.role=user.role
        }
        return token 
       },
@@ -50,7 +51,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             session.user.id=token.id as string,
             session.user.name=token.name as string,
             session.user.email=token.email as string,
-            session.user.role=token.role as string,
+            session.user.role=token.role as string
             
         }
         return session 

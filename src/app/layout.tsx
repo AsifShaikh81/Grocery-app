@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-
 import "./globals.css";
-
-
+import Provider from "@/Provider";
 
 export const metadata: Metadata = {
   title: "EaseKart — Shop quick, eat fresh",
@@ -16,10 +14,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-      className="bg-gradient-to-b from-[#F25A1A] to-[#F7F2D7] w-full h-screen"
-      >
-        {children}
+      <body className="bg-gradient-to-b from-[#F25A1A] to-[#F7F2D7] w-full h-screen">
+        <Provider>{children}</Provider>
       </body>
     </html>
   );
