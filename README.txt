@@ -47,3 +47,10 @@ src/components/RegisterFormm.tsx
 Session provider
 src/app/layout.tsx - provider
 src/provider.tsx - creating session provide bcz of 'use client' cant directly be written in layout.tsx
+
+6-google authentication
+src/auth.ts
+get client id and client secret from "https://console.cloud.google.com/apis/credentials?project=next-js-477212" and paste in .env then use it inside callback
+
+7- proxy(middleware)- to protect routes
+src/proxy.tsx
