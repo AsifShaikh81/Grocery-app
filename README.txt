@@ -54,3 +54,9 @@ get client id and client secret from "https://console.cloud.google.com/apis/cred
 
 7- proxy(middleware)- to protect routes
 src/proxy.tsx
+
+8- Roles
+src\app\page.tsx
+src\components\EditRoleMobile.tsx
+
+src\app\api\user\edit-role-mobile\route.ts
