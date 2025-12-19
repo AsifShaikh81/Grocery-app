@@ -9,7 +9,7 @@ type propType={
 
 function Welcome({nextStep}:propType) {
   return (
-    <div className='flex flex-col items-center justify-center min-h-screen text-center px-4'>
+    <div className='flex flex-col items-center justify-center min-h-screen text-center px-4 bg-gradient-to-b from-[#F25A1A] to-[#F7F2D7] '>
       
       <motion.div
         initial={{ opacity: 0, y: -20 }}

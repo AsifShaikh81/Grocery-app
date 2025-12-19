@@ -1,6 +1,9 @@
 text-[#F25A1A]-orange
 text-[#F7F2D7] - beige
+#f15d1eaf -faded
 [#D94E14] - hover orange
+
+bg-gradient-to-b from-[#F25A1A] to-[#F7F2D7] 
 
 1. model created
    src/model/user.model.ts
@@ -60,3 +63,6 @@ src\app\page.tsx
 src\components\EditRoleMobile.tsx
 
 src\app\api\user\edit-role-mobile\route.ts
+
+9- nav component
+src\components\Nav.tsx
