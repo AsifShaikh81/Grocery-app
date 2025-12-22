@@ -66,3 +66,22 @@ src\app\api\user\edit-role-mobile\route.ts
 
 9- nav component
 src\components\Nav.tsx
+
+10 - Hero section
+src\components\HeroSection.tsx
+
+src\components\AdminDashboard.tsx
+src\components\DeliveryDashboard.tsx
+src\components\UserDashboard.tsx
+
+11 - grocery model,grocery api, cloudinary
+src\model\grocery.model.ts
+src\lib\cloudinary.ts
+src\app\api\admin\add-grocery\route.ts
+
+12 - middleware update
+src\proxy.tsx
+src\app\unauthorized\page.tsx
+
+src\components\EditRoleMobile.tsx - session update(for role)
+src\auth.ts- triggering session update
