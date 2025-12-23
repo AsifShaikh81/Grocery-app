@@ -85,3 +85,6 @@ src\app\unauthorized\page.tsx
 
 src\components\EditRoleMobile.tsx - session update(for role)
 src\auth.ts- triggering session update
+
+13- updating nav for admin 
+src\components\Nav.tsx 
