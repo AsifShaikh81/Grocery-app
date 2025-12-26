@@ -49,7 +49,11 @@ function HeroSection() {
   }, []);
 
   return (
-    <div className="relative w-[98%] mx-auto mt-28 h-[420px] sm:h-[480px] lg:h-[520px] rounded-3xl overflow-hidden shadow-2xl">
+    <div className="
+  relative w-[98%] mx-auto mt-28
+  h-[calc(100vh-140px)]
+  rounded-3xl overflow-hidden shadow-2xl
+">
       <AnimatePresence mode="wait">
         <motion.div
           key={currSlide}

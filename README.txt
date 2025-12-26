@@ -91,3 +91,10 @@ src\components\Nav.tsx
 
 14- grocery add page
 src\app\admin\add-grocery\page.tsx
+
+--------------section 2-----------
+creating animated category
+src\components\CategorySlider.tsx
+
+creating grocery item card
+src\components\GroceryItemCard.tsx -(redux issue)
