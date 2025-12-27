@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Provider from "@/Provider";
+import StoreProvider from "@/redux/StoreProvider";
+import InitUser from "@/InitUser";
 
 export const metadata: Metadata = {
   title: "EaseKart — Shop quick, eat fresh",
@@ -15,7 +17,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="w-full min-h-screen">
-        <Provider>{children}</Provider>
+        <Provider>
+          <StoreProvider>
+            <InitUser/>
+
+          {children}
+            
+
+          </StoreProvider>
+
+        </Provider>
       </body>
     </html>
   );

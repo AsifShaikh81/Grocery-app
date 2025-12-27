@@ -5,11 +5,19 @@ import EditRoleMobile from '@/components/EditRoleMobile'
 import Nav from '@/components/Nav'
 import UserDashboard from '@/components/UserDashboard'
 import connectDb from '@/lib/db'
+import Grocery,{ IGrocery} from '@/model/grocery.model'
 import User from '@/model/user.model'
 import { redirect } from 'next/navigation'
+
 import React from 'react'
 
-async function Home() {
+async function Home(props:{
+  searchParams:Promise<{
+    q:string
+  }>
+}) {
+
+  const searchParams=await props.searchParams
   await connectDb()
   const session=await auth()
   const user=await User.findById(session?.user?.id)
@@ -25,11 +33,27 @@ async function Home() {
 //  console.log(plainUser);
 //  console.log(user);
  
+let groceryList:IGrocery[]=[]
+
+if(user.role==="user"){
+  if(searchParams.q){
+    groceryList=await Grocery.find({
+     $or:[
+      { name: { $regex: searchParams?.q || "", $options: "i" } },
+    { category: { $regex: searchParams?.q || "", $options: "i" } },
+     ]
+    })
+  }else{
+    groceryList=await Grocery.find({})
+     
+
+  }
+}
   return (
     <div className='bg-white w-full h-screen'>
     <Nav user={plainUser}/>
     {
-      user.role =="user"?(<UserDashboard/>):
+      user.role =="user"?(<UserDashboard groceryList={groceryList}/>):
       user.role =="admin"?(<AdminDashboard/>):
       <DeliveryDashboard/>
     }

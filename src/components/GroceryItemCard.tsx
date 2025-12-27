@@ -38,9 +38,9 @@ function GroceryItemCard({item}:{item:IGrocery}) {
 <h3>{item.name}</h3>
 <div className='flex items-center justify-between mt-2'>
     <span className='text-xs font-medium text-gray-600 bg-gray-100 px-2 py-1 rounded-full'>{item.unit}</span>
-    <span className='text-green-700 font-bold text-lg'>₹{item.price}</span>
+    <span className='text-gray-600 font-bold text-lg'>₹{item.price}</span>
 </div>
-{!cartItem ?<motion.button className='mt-4 flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white rounded-full py-2 text-sm font-medium transition-all' 
+{!cartItem ?<motion.button className='mt-4 flex items-center justify-center gap-2 bg-[#F25A1A] hover:bg-[#D94E14] text-white rounded-full py-2 text-sm font-medium transition-all' 
 whileTap={{scale:0.96}}
 onClick={()=>dispatch(addToCart({...item,quantity:1}))}
 >
@@ -51,11 +51,11 @@ onClick={()=>dispatch(addToCart({...item,quantity:1}))}
 initial={{opacity:0, y:10}}
 animate={{opacity:1, y:0}}
 transition={{duration:0.3}}
-className='mt-4 flex items-center justify-center bg-green-50 border border-green-200 rounded-full py-2 px-4 gap-4'
+className='mt-4 flex items-center justify-center bg-[#F25A1A] border border-[#F25A1A] rounded-full py-2 px-4 gap-4'
 >
-  <button className='w-7 h-7 flex items-center justify-center rounded-full bg-green-100 hover:bg-green-200 transition-all' onClick={()=>dispatch(decreaseQuantity(item._id))}><Minus size={16} className='text-green-700'/></button>
-  <span className='text-sm font-semibold text-gray-800'>{cartItem.quantity}</span>
-  <button className='w-7 h-7 flex items-center justify-center rounded-full bg-green-100 hover:bg-green-200 transition-all' onClick={()=>dispatch(increaseQuantity(item._id))}><Plus size={16} className='text-green-700'/></button>
+  <button className='w-7 h-7 flex items-center justify-center rounded-full bg-[#F25A1A] hover:bg-[#F25A1A] transition-all' onClick={()=>dispatch(decreaseQuantity(item._id))}><Minus size={16} className='text-white'/></button>
+  <span className='text-sm font-semibold text-white'>{cartItem.quantity}</span>
+  <button className='w-7 h-7 flex items-center justify-center rounded-full  transition-all' onClick={()=>dispatch(increaseQuantity(item._id))}><Plus size={16} className='text-white'/></button>
 
   
   </motion.div>}

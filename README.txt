@@ -93,8 +93,23 @@ src\components\Nav.tsx
 src\app\admin\add-grocery\page.tsx
 
 --------------section 2-----------
-creating animated category
+1.creating animated category
 src\components\CategorySlider.tsx
 
-creating grocery item card
+2.creating grocery item card
 src\components\GroceryItemCard.tsx -(redux issue)
+
+3.redux tool kit
+src\redux\store.ts
+src\redux\userSlice.ts
+
+- wraping redux as a provider in layout.tsx(main)
+src\redux\StoreProvider.tsx
+
+4. get me api -
+this api is for adding user data in redux state
+
+src\app\api\me\route.ts - get me api 
+src\hooks\useGetMe.tsx - custom hook
+
+src\InitUser.tsx - used in layout.tsx
