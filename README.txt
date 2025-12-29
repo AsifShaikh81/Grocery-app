@@ -113,3 +113,8 @@ src\app\api\me\route.ts - get me api
 src\hooks\useGetMe.tsx - custom hook
 
 src\InitUser.tsx - used in layout.tsx
+
+5. add to cart functionality
+
+6. creating cart page
+src\app\user\cart\page.tsx
