@@ -118,3 +118,9 @@ src\InitUser.tsx - used in layout.tsx
 
 6. creating cart page
 src\app\user\cart\page.tsx
+
+7. creating checkout page
+src\app\user\checkout\page.tsx
+
+leaflet for map:
+npm i leaflet
