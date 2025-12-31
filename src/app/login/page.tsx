@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   EyeClosed,
   EyeIcon,
@@ -12,7 +12,7 @@ import {
 import { FormEvent, useState } from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
-import googleImage from '@/assets/google.png'
+import googleImage from "@/assets/google.png";
 import { useRouter } from "next/navigation";
 import { signIn, useSession } from "next-auth/react";
 // import axios from "axios";
@@ -21,37 +21,35 @@ function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [loading , setLoading] = useState(false)
-  const router = useRouter()
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
   const formValidation = email !== "" && password !== "";
-  const session=useSession()
+  const session = useSession();
   console.log(session);
-  
- 
-  const handleLogIn= async (e:FormEvent) => {
+
+  const handleLogIn = async (e: FormEvent) => {
     try {
-      e.preventDefault()
-      setLoading(true)
-      const res = await signIn('credentials',{
-        email,password,
-        redirect:false
-      })
-      
-      setLoading(false)
-        if (res?.ok) {
-    router.push("/");
-  } else {
-    console.log(res?.error);
-  }
+      e.preventDefault();
+      setLoading(true);
+      const res = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+      });
+
+      setLoading(false);
+      if (res?.ok) {
+        router.push("/");
+      } else {
+        console.log(res?.error);
+      }
     } catch (error) {
-      console.log(error); 
-      setLoading(false)
+      console.log(error);
+      setLoading(false);
     }
-  }
+  };
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-6 py-10 bg-white relative">
-  
-
       {/* Heading */}
       <motion.h1
         className="text-4xl font-extrabold text-[#F25A1A] mb-2"
@@ -59,11 +57,11 @@ function LoginForm() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        Welcome Back 
+        Welcome Back
       </motion.h1>
 
       <p className="flex items-center gap-1">
-        Log in to EaseKart
+        Log in to EaseCart
         <ShoppingBasket className="w-5 h-5 text-[#F25A1A]" />
       </p>
 
@@ -75,7 +73,6 @@ function LoginForm() {
         className="w-full max-w-md mt-6 flex flex-col gap-4"
         onSubmit={handleLogIn}
       >
-        
         <div className="relative">
           <Mail className="absolute left-3 top-3.5 w-5 h-5 text-gray-400" />
 
@@ -120,25 +117,28 @@ function LoginForm() {
               : "bg-gray-300 text-gray-500 cursor-not-allowed"
           }`}
         >
-            {loading?<Loader  className="w-5 h-5 animate-spin"/>:"Login"}
-          
+          {loading ? <Loader className="w-5 h-5 animate-spin" /> : "Login"}
         </button>
         <div className="flex items-center gap-2 text-gray-400 text-sm mt-2">
-            <span className="flex-1 h-px bg-gray-200"></span>
-            OR           
-            <span className="flex-1 h-px bg-gray-200"></span>
+          <span className="flex-1 h-px bg-gray-200"></span>
+          OR
+          <span className="flex-1 h-px bg-gray-200"></span>
         </div>
         {/* button */}
-        <div className="w-full flex items-center justify-center gap-3 border border-gray-300 hover:bg-gray-50 py-3 rounded-xl text-gray-700 font-medium transition-all duration-200" onClick={()=>signIn('google',{callbackUrl:"/"})}>
-            <Image src={googleImage} width={20} height={20} alt='google'/>
-            Continue with Google
+        <div
+          className="w-full flex items-center justify-center gap-3 border border-gray-300 hover:bg-gray-50 py-3 rounded-xl text-gray-700 font-medium transition-all duration-200"
+          onClick={() => signIn("google", { callbackUrl: "/" })}
+        >
+          <Image src={googleImage} width={20} height={20} alt="google" />
+          Continue with Google
         </div>
       </motion.form>
-      <p className="text-gray-600 mt-5 text-sm flex items-center gap-1 cursor-pointer"  onClick={()=>router.push("/register")}>Want to create an account <LogInIcon className="w-4 h-4"/>
-      <span className="text-[#F25A1A]">
-      Sign Up
-      </span>
-
+      <p
+        className="text-gray-600 mt-5 text-sm flex items-center gap-1 cursor-pointer"
+        onClick={() => router.push("/register")}
+      >
+        Want to create an account <LogInIcon className="w-4 h-4" />
+        <span className="text-[#F25A1A]">Sign Up</span>
       </p>
     </div>
   );

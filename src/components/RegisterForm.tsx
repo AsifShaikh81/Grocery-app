@@ -12,7 +12,7 @@ import {
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
-import googleImage from '@/assets/google.png'
+import googleImage from "@/assets/google.png";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
@@ -22,28 +22,30 @@ type propType = {
 };
 
 function RegisterForm({ previousStep }: propType) {
-  
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [loading , setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const formValidation = name !== "" && email !== "" && password !== "";
-  const router = useRouter()
-  const handleRegister=async(e:React.FormEvent)=>{
-    e.preventDefault()
-    setLoading(true)
+  const router = useRouter();
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
     try {
-        const result=await axios.post("api/auth/register", {name,email,password})
-        router.push("/login")
+      const result = await axios.post("api/auth/register", {
+        name,
+        email,
+        password,
+      });
+      router.push("/login");
       // console.log(result.data);
-      setLoading(false)
+      setLoading(false);
     } catch (error) {
-        console.log(error);
-        setLoading(false)
-        
+      console.log(error);
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-6 py-10 bg-white relative">
@@ -67,7 +69,7 @@ function RegisterForm({ previousStep }: propType) {
       </motion.h1>
 
       <p className="flex items-center gap-1">
-        Join EaseKart today{" "}
+        Join EaseCart today{" "}
         <ShoppingBasket className="w-5 h-5 text-[#F25A1A]" />
       </p>
 
@@ -135,25 +137,28 @@ function RegisterForm({ previousStep }: propType) {
               : "bg-gray-300 text-gray-500 cursor-not-allowed"
           }`}
         >
-            {loading?<Loader  className="w-5 h-5 animate-spin"/>:"Register"}
-          
+          {loading ? <Loader className="w-5 h-5 animate-spin" /> : "Register"}
         </button>
         <div className="flex items-center gap-2 text-gray-400 text-sm mt-2">
-            <span className="flex-1 h-px bg-gray-200"></span>
-            OR           
-            <span className="flex-1 h-px bg-gray-200"></span>
+          <span className="flex-1 h-px bg-gray-200"></span>
+          OR
+          <span className="flex-1 h-px bg-gray-200"></span>
         </div>
         {/* button */}
-       <div className="w-full flex items-center justify-center gap-3 border border-gray-300 hover:bg-gray-50 py-3 rounded-xl text-gray-700 font-medium transition-all duration-200" onClick={()=>signIn('google',{callbackUrl:"/"})}>
-            <Image src={googleImage} width={20} height={20} alt='google'/>
-            Continue with Google
+        <div
+          className="w-full flex items-center justify-center gap-3 border border-gray-300 hover:bg-gray-50 py-3 rounded-xl text-gray-700 font-medium transition-all duration-200"
+          onClick={() => signIn("google", { callbackUrl: "/" })}
+        >
+          <Image src={googleImage} width={20} height={20} alt="google" />
+          Continue with Google
         </div>
       </motion.form>
-      <p className="text-gray-600 mt-5 text-sm flex items-center gap-1 cursor-pointer" onClick={()=>router.push("/login")}>Already have an account ? <LogIn className="w-4 h-4"/>
-      <span className="text-[#F25A1A]">
-      Sign in
-      </span>
-
+      <p
+        className="text-gray-600 mt-5 text-sm flex items-center gap-1 cursor-pointer"
+        onClick={() => router.push("/login")}
+      >
+        Already have an account ? <LogIn className="w-4 h-4" />
+        <span className="text-[#F25A1A]">Sign in</span>
       </p>
     </div>
   );

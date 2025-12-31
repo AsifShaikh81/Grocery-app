@@ -37,7 +37,7 @@ function Nav({ user }: { user: IUser }) {
   const profileDropDown = useRef<HTMLDivElement>(null);
   const [searchOpen, setSearchOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const {cartData}=useSelector((state:RootState)=>state.cart)
+  const { cartData } = useSelector((state: RootState) => state.cart);
 
   useEffect(() => {
     const clickOutSide = (e: MouseEvent) => {
@@ -115,14 +115,15 @@ function Nav({ user }: { user: IUser }) {
                 <ClipboardCheck /> Manage Orders
               </Link>
             </div>
-            <div className="my-5 border-t border-white/20">
-            </div>
+            <div className="my-5 border-t border-white/20"></div>
 
-            <div className="flex items-center gap-3 text-red-300 font-semibold mt-auto hover:bg-red-500/20 p-3 rounded-lg transition-all" onClick={async ()=>await signOut({callbackUrl:"/"})}>
-              <LogOut className="w-5 h-5 text-red-300"/>
+            <div
+              className="flex items-center gap-3 text-red-300 font-semibold mt-auto hover:bg-red-500/20 p-3 rounded-lg transition-all"
+              onClick={async () => await signOut({ callbackUrl: "/" })}
+            >
+              <LogOut className="w-5 h-5 text-red-300" />
               Log Out
             </div>
-
           </motion.div>
         </AnimatePresence>,
         document.body
@@ -135,7 +136,7 @@ function Nav({ user }: { user: IUser }) {
         href={"/"}
         className="text-[#F7F2D7] font-extrabold text-2xl sm:text-3xl tracking-wide hover:scale-105 transition-transform"
       >
-        EaseKart
+        EaseCart
       </Link>
       {/* middle section */}
       {user.role == "user" && (
@@ -253,7 +254,7 @@ function Nav({ user }: { user: IUser }) {
                 </div>
                 {user.role == "user" && (
                   <Link
-                    href={""}
+                    href={"/user/my-orders"}
                     className="flex items-center gap-2 px-3 py-3 hover:bg-[#f15d1eaf] rounded-lg text-gray-700 font-medium"
                     onClick={() => setOpen(false)}
                   >

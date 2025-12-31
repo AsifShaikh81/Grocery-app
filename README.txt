@@ -120,7 +120,57 @@ src\InitUser.tsx - used in layout.tsx
 src\app\user\cart\page.tsx
 
 7. creating checkout page
-src\app\user\checkout\page.tsx
+src\app\user\checkout\page.tsx - mapview is in this page
 
 leaflet for map:
+https://react-leaflet.js.org/
 npm i leaflet
+npm i react-leaflet
+npm i --save @types/leaflet
+
+
+this api helps to fetch address u pin on the map
+website -https://nominatim.org/release-docs/latest/api/Reverse/
+api - https://nominatim.openstreetmap.org/reverse?lat=<value>&lon=<value>&<params>
+
+
+leaflet geosearch - this is a plugin for searching address in map:
+https://github.com/sjaakp/leaflet-search
+npm i --save leaflet-geosearch
+
+src\components\CheckoutMap.tsx
+src\app\user\checkout\page.tsx - some leaflet code in this
+
+
+8. order model
+src\model\order.model.ts
+
+9. place order api
+src\app\api\user\order\route.ts
+
+10. order success page
+src\app\user\order-success\page.tsx
+
+
+11. stripe pay Intg
+stripe document - https://docs.stripe.com/payments/accept-a-payment
+
+npm i stripe
+stripe api - src\app\api\user\payment\route.ts
+
+stripe webhook: is used to verify payment is success or not
+stripe cli - https://docs.stripe.com/stripe-cli/install?install-method=windows
+stripe webhook - src\app\api\user\stripe\webhook\route.ts
+
+note: stripe(online) and cod payment api fetched in checkout page
+
+12. my orders page
+src\app\user\my-orders\page.tsx
+
+my order api - src\app\api\user\my-orders\route.ts
+src\components\UserOrderCard.tsx
+
+----
+Remaining to watch this part:
+src\components\CheckoutMap.tsx
+src\lib\emitEventHandler.ts
