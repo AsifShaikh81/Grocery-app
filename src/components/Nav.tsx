@@ -109,7 +109,7 @@ function Nav({ user }: { user: IUser }) {
                 <Boxes /> View Grocery
               </Link>
               <Link
-                href={""}
+                href={"/admin/manage-orders"}
                 className="flex items-center gap-3 p-3 rounded-lg bg-white/10 hover:bg-white/20 hover:pl-4 transition-all"
               >
                 <ClipboardCheck /> Manage Orders
@@ -189,7 +189,7 @@ function Nav({ user }: { user: IUser }) {
                 <Boxes /> View Grocery
               </Link>
               <Link
-                href={""}
+                href={"/admin/manage-orders"}
                 className="flex items-center gap-2 bg-white text-[#F25A1A] font-semibold px-4 py-2 rounded-full hover:bg-[#F7F2D7]"
               >
                 <ClipboardCheck /> Manage Orders

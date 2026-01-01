@@ -170,6 +170,35 @@ src\app\user\my-orders\page.tsx
 my order api - src\app\api\user\my-orders\route.ts
 src\components\UserOrderCard.tsx
 
+13. creating manage order
+src\app\admin\add-grocery\manage-orders\page.tsx
+api - src\app\api\admin\get-orders\route.ts
+
+
+---------------section 3
+1. creating delivery assignment                                  
+src\components\AdminOrderCard.tsx
+src\model\deliveryAssignment.model.ts
+
+src\app\api\admin\update-order-status\[orderId]\route.ts
+
+2. socket server implementing
+socketServer - for realtime communication,
+as soon as user place order it will visible on admins side without refresh 
+
+npm i socket.io - for backend
+nom i socket.io-client - for Frontend
+socketServer\index.js - creating instance(backend)
+
+src\lib\socket.ts(frontend nextjs)
+
+Note: socket.on - listening(backend )
+      socket.emit - sending(frontend)
+
+socket api -src\app\api\socket\connect\route.ts
+
+3. location update using socket io
+src\components\GeoUpdate.tsx
 ----
 Remaining to watch this part:
 src\components\CheckoutMap.tsx
