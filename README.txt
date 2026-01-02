@@ -199,6 +199,17 @@ socket api -src\app\api\socket\connect\route.ts
 
 3. location update using socket io
 src\components\GeoUpdate.tsx
+
+4.update order status
+src\app\api\admin\update-order-status\[orderId]\route.ts
+
+5. delivery dasboard 
+asif1234@gmail.com
+asif1234@gmail.com
+
+src\components\DeliveryBoy.tsx
+src\components\DeliveryDashboard.tsx
+api - src\app\api\delivery\get-assignments\route.ts
 ----
 Remaining to watch this part:
 src\components\CheckoutMap.tsx

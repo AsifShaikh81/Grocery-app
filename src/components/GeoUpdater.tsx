@@ -26,3 +26,4 @@ function GeoUpdater({userId}:{userId:string}) {
 }
 
 export default GeoUpdater
+ 
