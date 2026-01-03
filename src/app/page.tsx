@@ -1,15 +1,20 @@
 import { auth } from '@/auth'
 import AdminDashboard from '@/components/AdminDashboard'
-import DeliveryDashboard from '@/components/DeliveryDashboard'
+import DeliveryBoy from '@/components/DeliveryBoy'
 import EditRoleMobile from '@/components/EditRoleMobile'
+// import Footer from '@/components/Footer'
+import GeoUpdater from '@/components/GeoUpdater'
+
 import Nav from '@/components/Nav'
 import UserDashboard from '@/components/UserDashboard'
 import connectDb from '@/lib/db'
-import Grocery,{ IGrocery} from '@/model/grocery.model'
+import Grocery, { IGrocery } from '@/model/grocery.model'
+
 import User from '@/model/user.model'
+
 import { redirect } from 'next/navigation'
 
-import React from 'react'
+
 
 async function Home(props:{
   searchParams:Promise<{
@@ -17,22 +22,22 @@ async function Home(props:{
   }>
 }) {
 
-  const searchParams=await props.searchParams
+const searchParams=await props.searchParams
+
   await connectDb()
-  const session=await auth()
-  const user=await User.findById(session?.user?.id)
-  if(!user){
-    redirect("/login")
+  const session = await auth()
+  if (!session) redirect("/login")
+  console.log(session?.user)
+  const user = await User.findById(session?.user?.id)
+ if (!user) redirect("/login")
+
+  const inComplete = !user.mobile || !user.role || (!user.mobile && user.role == "user")
+  if (inComplete) {
+    return <EditRoleMobile />
   }
-  // console.log(session);
-  const InComplete= !user.mobile || !user.role || (!user.mobile && user.role=="user")
-  if(InComplete){
-    return <EditRoleMobile/>
-  }
- const plainUser=JSON.parse(JSON.stringify(user))
-//  console.log(plainUser);
-//  console.log(user);
- 
+
+  const plainUser = JSON.parse(JSON.stringify(user))
+
 let groceryList:IGrocery[]=[]
 
 if(user.role==="user"){
@@ -49,15 +54,20 @@ if(user.role==="user"){
 
   }
 }
+
+
+
   return (
-    <div className='bg-white w-full h-screen'>
-    <Nav user={plainUser}/>
-    {
-      user.role =="user"?(<UserDashboard groceryList={groceryList}/>):
-      user.role =="admin"?(<AdminDashboard/>):
-      <DeliveryDashboard/>
-    }
-    </div>
+    <>
+      <Nav user={plainUser} />
+      <GeoUpdater userId={plainUser._id}/>
+      {user.role == "user" ? (
+        <UserDashboard groceryList={groceryList}/>
+      ) : user.role == "admin" ? (
+        <AdminDashboard />
+      ) : <DeliveryBoy />}
+      {/* <Footer/> */}
+    </>
   )
 }
 

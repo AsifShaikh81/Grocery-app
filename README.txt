@@ -206,11 +206,40 @@ src\app\api\admin\update-order-status\[orderId]\route.ts
 5. delivery dasboard 
 asif1234@gmail.com
 asif1234@gmail.com
-
+  
 src\components\DeliveryBoy.tsx
 src\components\DeliveryDashboard.tsx
 api - src\app\api\delivery\get-assignments\route.ts
+
+6. creating realtime events
+src\lib\emitEventHandler.ts
+
+7. creting assignment account
+src\app\api\delivery\assignment\[id]\accept-assignment\route.ts
+
+src\app\api\delivery\current-order\route.ts
+
+8. live map tracking
+src\components\LiveMap.tsx
+src\app\user\track-order\[orderId]\page.tsx
+src\app\api\user\get-order\[orderId]\route.ts
+
+9. ai chat
+src\model\message.model.ts
+src\app\api\chat
+src\components\DeliveryChat.tsx
+
+gemini api key for ai suggestion
+https://ai.google.dev/gemini-api/docs/api-key
+
+10. marks as delivered intg otp verification
+using nodemailer - https://nodemailer.com/
+installing nodemailer - npm install nodemailer
+using typescript so install this - npm i --save-dev @types/nodemailer
+
+src\lib\mailer.ts
+
+Api, otp sending and verification - src\app\api\delivery\otp
 ----
 Remaining to watch this part:
 src\components\CheckoutMap.tsx
-src\lib\emitEventHandler.ts

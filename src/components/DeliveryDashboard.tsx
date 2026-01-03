@@ -10,7 +10,7 @@ import LiveMap from './LiveMap'
 import DeliveryChat from './DeliveryChat'
 import { div } from 'motion/react-client'
 import { Loader } from 'lucide-react'
-import { Bar, BarChart, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import { Bar, BarChart, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
 
 interface ILocation {
   latitude: number,
@@ -159,13 +159,13 @@ if(!activeOrder && assignments.length===0){
     }
   ]
   return (
-    <div className='flex items-center justify-center min-h-screen bg-linear-to-br from-white to-green-50 p-6'>
+    <div className='flex items-center justify-center min-h-screen bg-linear-to-br from-white to-[#F25A1A] p-6'>
       <div className='max-w-md w-full text-center'>
       <h2 className='text-2xl font-bold text-gray-800'>No Active Deliveries 🚛</h2>
       <p className='text-gray-500 mb-5'>Stay online to receive new orders</p>
 
       <div className='bg-white border rounded-xl shadow-xl p-6'>
-        <h2 className='font-medium text-green-700 mb-2'>Today's Performance</h2>
+        <h2 className='font-medium text-[#F25A1A] mb-2'>Today's Performance</h2>
          <ResponsiveContainer width="100%" height={300}>
                     <BarChart data={todayEarning}>
          <XAxis dataKey="name" />
@@ -178,8 +178,8 @@ if(!activeOrder && assignments.length===0){
                     </BarChart>
                 </ResponsiveContainer>
 
-         <p className='mt-4 text-lg font-bold text-green-700'>{earning || 0} Earned today</p>
-         <button className='mt-4 w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg' onClick={()=>window.location.reload()}>Refresh Earning</button>
+         <p className='mt-4 text-lg font-bold text-[#F25A1A]'>{earning || 0} Earned today</p>
+         <button className='mt-4 w-full bg-[#F25A1A] hover:bg-[#D94E14] text-white py-2 rounded-lg' onClick={()=>window.location.reload()}>Refresh Earning</button>
 
       </div>
       </div>
@@ -192,7 +192,7 @@ if(!activeOrder && assignments.length===0){
     return (
       <div className='p-4 pt-[120px] min-h-screen bg-gray-50'>
         <div className='max-w-3xl mx-auto'>
-          <h1 className='text-2xl font-bold text-green-700 mb-2'>Active Delivery</h1>
+          <h1 className='text-2xl font-bold text-[#F25A1A] mb-2'>Active Delivery</h1>
           <p className='text-gray-600 text-sm mb-4'>order#{activeOrder.order._id.slice(-6)}</p>
 
           <div className='rounded-xl border shadow-lg overflow-hidden mb-6'>
@@ -203,7 +203,7 @@ if(!activeOrder && assignments.length===0){
             {!activeOrder.order.deliveryOtpVerification && !showOtpBox && (
              <button
              onClick={sendOtp}
-             className='w-full py-4 bg-green-600 text-center text-white rounded-lg'
+             className='w-full py-4 bg-[#F25A1A] text-center text-white rounded-lg'
              >{sendOtpLoading?<Loader size={16} className='animate-spin text-white text-center'/>:"Mark as Delivered"}</button>
             )}
             {
@@ -215,7 +215,7 @@ if(!activeOrder && assignments.length===0){
 
               </div>
             }
-           {activeOrder.order.deliveryOtpVerification && <div className='text-green-700 text-center font-bold'>Delivery completed!</div>}
+           {activeOrder.order.deliveryOtpVerification && <div className='text-[#F25A1A] text-center font-bold'>Delivery completed!</div>}
 
              
           </div>
@@ -240,7 +240,7 @@ if(!activeOrder && assignments.length===0){
             <p className='text-gray-600'>{a.order.address.fullAddress}</p>
 
             <div className='flex gap-3 mt-4'>
-              <button className='flex-1 bg-green-600 text-white py-2 rounded-lg'
+              <button className='flex-1 bg-[#F25A1A] text-white py-2 rounded-lg'
                 onClick={() => handleAccept(a._id)}
               >Accept</button>
               <button className='flex-1 bg-red-600 text-white py-2 rounded-lg'>Reject</button>
