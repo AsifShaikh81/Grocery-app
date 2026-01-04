@@ -240,6 +240,20 @@ using typescript so install this - npm i --save-dev @types/nodemailer
 src\lib\mailer.ts
 
 Api, otp sending and verification - src\app\api\delivery\otp
-----
-Remaining to watch this part:
-src\components\CheckoutMap.tsx
+
+10. creating admin dasboard
+ src\components\AdminDashboardClient.tsx
+ src\components\AdminDashboard.tsx
+ recharts - https://recharts.github.io/ 
+
+11. View Groceries
+ src\app\api\admin\get-groceries\route.ts
+ src\app\admin\view-grocery\page.tsx
+ 
+ api to edit grocery - src\app\api\admin\edit-grocery\route.ts
+ 
+ api to edit grocery -  src\app\api\admin\delete-grocery\route.ts
+
+---- section 4---
+earning fuctionality Deliver Boy
+src\components\DeliveryBoy.tsx
